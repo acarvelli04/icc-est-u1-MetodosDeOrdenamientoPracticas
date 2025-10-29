@@ -1,55 +1,57 @@
 import java.util.Scanner;
-
+/** EL proposito de view es poder mostrarle al usuario las opciones 
+ * y asi que escoga alguna
+*/
 public class View {
-    // esto sera para mostrarle la informacion al usuario o hacer que ingrese datos
-
-    //Variable global privada para el scanner
+    // Scanner global para leer la entrada del usuario
     private final Scanner scanner;
 
-    public View(){
-        System.out.println("Metodos Ordenamiento");
+    public View() {
+        System.out.println("Métodos de Ordenamiento");
         scanner = new Scanner(System.in);
     }
 
-    public void showMenu(){
-        System.out.println("\n --Menu Metodos--");
-        System.out.println("1-> Seleccion");
-        System.out.println("2-> Insertion");
-        System.out.println("3-> Bubble");
-        System.out.println("4-> Salir");
-        System.out.println("Seleccione la opcion");
-        
+    // Menú principal
+    public void showMenu() {
+        System.out.println("\n-- Menú Métodos --");
+        System.out.println("1 --> Selección");
+        System.out.println("2 --> Inserción");
+        System.out.println("3 --> Burbuja");
+        System.out.println("4 --> Salir");
+        System.out.print("Seleccione la opción: ");
     }
 
-    public int inputOption(int max){
+    // validación entre 1 y max
+    public int inputOption(int max) {
         int option = -1;
         while (true) {
-            if(scanner.hasNextInt()){
-                option=scanner.nextInt();
-                if (option >=1 && option<= max) {
+            if (scanner.hasNextInt()) {
+                option = scanner.nextInt();
+                if (option >= 1 && option <= max) {
                     break;
                 }
-            }else{
-                scanner.next();
+            } else {
+                scanner.next(); // limpiar basura
             }
-            System.out.println("Opcion invalida, Ingrese Otra Vez");
+            System.out.print("Opción inválida, ingrese otra vez: ");
         }
         return option;
     }
 
-        public void showOrdenMenu(){
-            System.out.println("\n --Menu Metodos--");
-            System.out.println("1-> Ascendente");
-            System.out.println("2-> Desendente");
-            System.out.println("Seleccione la opcion");
-        }
+    // Menú de orden
+    public void showOrdenMenu() {
+        System.out.println("\n-- Orden --");
+        System.out.println("1 -> Ascendente");
+        System.out.println("2 -> Descendente");
+        System.out.print("Seleccione la opción: ");
+    }
 
-        public void showPasosMenu(){
-            System.out.println("\n --Menu Metodos--");
-            System.out.println("1-> Ascendente");
-            System.out.println("2-> Desendente");
-            System.out.println("Seleccione la opcion");
-        }
-
-
+    // Menú de los pasos pasos
+    public void showPasosMenu() {
+        System.out.println("\n-- ¿Mostrar pasos? --");
+        System.out.println("1 -> Sí, paso a paso");
+        System.out.println("2 -> No, solo resultado final");
+        System.out.print("Seleccione la opción: ");
+    }
 }
+
